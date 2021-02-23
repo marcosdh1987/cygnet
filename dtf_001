@@ -1,0 +1,16 @@
+
+
+<CfgMB niceName="Configurable Modbus Data" devDG="false" autoAdd="0" baseOrd="0" majorRev="1" minorRev="1" canSend="true" canRecv="true" uccSend="false" uccRecv="true">
+<dgElements byteOrder="bigEndian" secLev="4">
+<Ele001 desc="WHT" regNum="103" type="r4" cvtF="ReverseBytes" units="C"/>
+<Ele002 desc="WHP" type="r4" cvtF="ReverseBytes" regNum="203" units="psig"/>
+<Ele003 desc="Gas Temp" type="r4" cvtF="ReverseBytes" regNum="303" units="C"/>
+<Ele004 desc="Switch 01" type="r4" cvtF="ReverseBytes" regNum="113"/>
+</dgElements>
+<modbusReadBlocks>
+<block1 regNum="100" regOff="0" regCnt="300" funcCode="3" regByteLen="2"/>
+</modbusReadBlocks>
+<modbusWriteBlocks>
+<block1 regNum="100" regOff="0" regCnt="300" funcCode="6" regByteLen="2"/>
+</modbusWriteBlocks>
+</CfgMB>
