@@ -1,0 +1,36 @@
+<deviceDefinition deviceType="ACC_BR" desc="Marcos's Accutech Wireless" model="BR10" eieType="ModbusAcc" category="4098" mfg="CygNet" cygnetVersion="9.2.1000" customerVersion="">
+    <dataGroups udcCat="~UDCALL" canSend="true" canRecv="true" uccSend="false" uccRecv="true" udcDefFac="true" devDG="false" baseOrd="0" maxCnt="1" forceSave="True">
+        <CfgMB niceName="Configurable Modbus Datagroup" baseOrd="1" maxCnt="999" ordLabel="Ord#"/>
+        <ExStatus dgCat="ExStatus" niceName="Read Exception Status" canSend="false" uccSend="false">
+            <dgElements byteOrder="bigEndian" secLev="4" type="ui1">
+                <Status desc="Exception Status" dMask="0x%02x"/>
+                <Status7 desc="Status Bit 7" type="boolean" bPos="7" len="1" ref="Status"/>
+                <Status6 desc="Status Bit 6" type="boolean" bPos="6" len="1" ref="Status"/>
+                <Status5 desc="Status Bit 5" type="boolean" bPos="5" len="1" ref="Status"/>
+                <Status4 desc="Status Bit 4" type="boolean" bPos="4" len="1" ref="Status"/>
+                <Status3 desc="Status Bit 3" type="boolean" bPos="3" len="1" ref="Status"/>
+                <Status2 desc="Status Bit 2" type="boolean" bPos="2" len="1" ref="Status"/>
+                <Status1 desc="Status Bit 1" type="boolean" bPos="1" len="1" ref="Status"/>
+                <Status0 desc="Status Bit 0" type="boolean" bPos="0" len="1" ref="Status"/>
+            </dgElements>
+        </ExStatus>
+
+        <ACCReg niceName="Accutech Modbus Data" devDG="false" autoAdd="0" baseOrd="0" majorRev="1" minorRev="1" canSend="true" canRecv="true" uccSend="false" uccRecv="true">
+        <dgElements byteOrder="bigEndian" secLev="4">
+        <Ele001 desc="Air Pressure" regNum="13" type="r4" cvtF="ReverseBytes" units="kg/cm2"/>
+        <Ele002 desc="WHP" type="r4" cvtF="ReverseBytes" regNum="203" units="psig"/>
+        <Ele003 desc="Gas Temp" type="r4" cvtF="ReverseBytes" regNum="303" units="C"/>
+        <Ele004 desc="Switch 01" type="r4" cvtF="ReverseBytes" regNum="113"/>
+        </dgElements>
+        <modbusReadBlocks>
+        <block1 regNum="15" regOff="0" regCnt="800" funcCode="3" regByteLen="2"/>
+        </modbusReadBlocks>
+        <modbusWriteBlocks>
+        <block1 regNum="15" regOff="0" regCnt="100" funcCode="6" regByteLen="2"/>
+        </modbusWriteBlocks>
+        </ACCReg>
+        </dataGroups>
+    <defDataGroups>
+        <ACCReg/>
+    </defDataGroups>
+</deviceDefinition>
