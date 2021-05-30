@@ -8,9 +8,9 @@
 <Ele004 desc="Switch 01" type="r4" cvtF="ReverseBytes" regNum="113"/>
 </dgElements>
 <modbusReadBlocks>
-<block1 regNum="100" regOff="0" regCnt="300" funcCode="3" regByteLen="2"/>
+<block1 regNum="15" regOff="0" regCnt="800" funcCode="3" regByteLen="2"/>
 </modbusReadBlocks>
 <modbusWriteBlocks>
-<block1 regNum="100" regOff="0" regCnt="300" funcCode="6" regByteLen="2"/>
+<block1 regNum="15" regOff="0" regCnt="100" funcCode="6" regByteLen="2"/>
 </modbusWriteBlocks>
 </CfgMB>
