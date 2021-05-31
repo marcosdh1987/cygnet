@@ -1,0 +1,21 @@
+<dgElements byteOrder="bigEndian" secLev="4">
+                <Ele001 desc="Air Pressure"                   regNum="13"    type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele002 desc="MAN-001_Ctrl_P"          regNum="33"    type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele003 desc="MAN-002_Ctrl_P"          regNum="53"    type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele004 desc="DS-101_Purg_P"             regNum="73"    type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele005 desc="DS-102_Purg_P"             regNum="93"    type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele006 desc="V-102_SP"             regNum="113"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele007 desc="V-101_FM_SP"           regNum="133"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele008 desc="V-101_FM_P"                 regNum="153"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele009 desc="V-101_FM_T"                  regNum="183"   type="r4"  cvtF="ReverseBytes" units="C"/>
+                <Ele010 desc="V-101_FM_DP"            regNum="213"   type="r4"  cvtF="ReverseBytes" units="inH2O"/>
+                <Ele011 desc="V-101_H2o_FR_RAW"             regNum="233"   type="r4"  cvtF="ReverseBytes" units="m3D"/>
+                <Ele012 desc="V-101_Oil_FR_RAW"               regNum="253"   type="r4"  cvtF="ReverseBytes" units="m3D"/>
+                <Ele013 desc="V-101_Oil_Temp"                 regNum="273"   type="r4"  cvtF="ReverseBytes" units="C"/>
+                <Ele014 desc="V-103_Gass_Press"               regNum="293"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele015 desc="V-103_Gas_Temp"                 regNum="313"   type="r4"  cvtF="ReverseBytes" units="C"/>
+                <Ele016 desc="V-103_Gas_FR_LC"                regNum="333"   type="r4"  cvtF="ReverseBytes" units="m3D"/>
+                <Ele017 desc="GM-501_Gas_Press"               regNum="353"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele018 desc="GM-501_Gas_Temp"                regNum="373"   type="r4"  cvtF="ReverseBytes" units="C"/>
+                <Ele019 desc="GM-501_Gas_FR_LC"               regNum="393"   type="r4"  cvtF="ReverseBytes" units="m3D"/>
+            </dgElements>

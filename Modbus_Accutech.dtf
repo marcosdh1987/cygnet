@@ -1,0 +1,67 @@
+<deviceDefinition deviceType="BR_SCH" desc="Marcos's Accutech" model="V110" eieType="ModbusEfm" category="4098" mfg="CygNet" cygnetVersion="9.2.1000" customerVersion="">
+    <dataGroups udcCat="~UDCALL" canSend="true" canRecv="true" uccSend="false" uccRecv="true" udcDefFac="true" devDG="false" baseOrd="0" maxCnt="1" forceSave="True">
+        <CfgMB niceName="Configurable Modbus Datagroup" baseOrd="1" maxCnt="999" ordLabel="Ord#"/>
+        <ExStatus dgCat="ExStatus" niceName="Read Exception Status" canSend="false" uccSend="false">
+            <dgElements byteOrder="bigEndian" secLev="4" type="ui1">
+                <Status desc="Exception Status" dMask="0x%02x"/>
+                <Status7 desc="Status Bit 7" type="boolean" bPos="7" len="1" ref="Status"/>
+                <Status6 desc="Status Bit 6" type="boolean" bPos="6" len="1" ref="Status"/>
+                <Status5 desc="Status Bit 5" type="boolean" bPos="5" len="1" ref="Status"/>
+                <Status4 desc="Status Bit 4" type="boolean" bPos="4" len="1" ref="Status"/>
+                <Status3 desc="Status Bit 3" type="boolean" bPos="3" len="1" ref="Status"/>
+                <Status2 desc="Status Bit 2" type="boolean" bPos="2" len="1" ref="Status"/>
+                <Status1 desc="Status Bit 1" type="boolean" bPos="1" len="1" ref="Status"/>
+                <Status0 desc="Status Bit 0" type="boolean" bPos="0" len="1" ref="Status"/>
+            </dgElements>
+        </ExStatus>
+        <ACCReg niceName="Sch Acc Regs" devDG="false" autoAdd="0" baseOrd="0" majorRev="1" minorRev="1" canSend="true" canRecv="true" uccSend="true" uccRecv="true">
+            <dgElements byteOrder="bigEndian" secLev="4">
+				
+				
+                <Ele002 desc="MAN-001_Ctrl_P"          		regNum="40033"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele003 desc="MAN-002_Ctrl_P"          		regNum="40053"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele004 desc="DS-101_Purg_P"             	regNum="40073"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele005 desc="DS-102_Purg_P"             	regNum="40093"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele006 desc="V-102_SP"             		regNum="40113"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele007 desc="V-101_FM_SP"           		regNum="40133"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele008 desc="V-101_FM_P"                 	regNum="40153"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele009 desc="V-101_FM_T"                  	regNum="40183"   type="r4"  cvtF="ReverseBytes" units="C"/>
+                <Ele010 desc="V-101_FM_DP"            		regNum="40213"   type="r4"  cvtF="ReverseBytes" units="inH2O"/>
+                <Ele011 desc="V-101_H2o_FR_RAW"             regNum="40233"   type="r4"  cvtF="ReverseBytes" units="m3D"/>
+                <Ele012 desc="V-101_Oil_FR_RAW"             regNum="40253"   type="r4"  cvtF="ReverseBytes" units="m3D"/>
+                <Ele013 desc="V-101_Oil_Temp"               regNum="40273"   type="r4"  cvtF="ReverseBytes" units="C"/>
+                <Ele014 desc="V-103_Gass_Press"             regNum="40293"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele015 desc="V-103_Gas_Temp"               regNum="40313"   type="r4"  cvtF="ReverseBytes" units="C"/>
+                <Ele016 desc="V-103_Gas_FR_LC"              regNum="40333"   type="r4"  cvtF="ReverseBytes" units="m3D"/>
+                <Ele017 desc="GM-501_Gas_Press"             regNum="40353"   type="r4"  cvtF="ReverseBytes" units="kg/cm2"/>
+                <Ele018 desc="GM-501_Gas_Temp"              regNum="40373"   type="r4"  cvtF="ReverseBytes" units="C"/>
+                <Ele019 desc="GM-501_Gas_FR_LC"             regNum="40393"   type="r4"  cvtF="ReverseBytes" units="m3D"/>
+			</dgElements>
+			<modbusReadBlocks>
+				<block1 regCnt="400" funcCode="3" regNum="40015" regOff="-40000" regByteLen="2"/>
+			</modbusReadBlocks>
+			<modbusWriteBlocks>
+				<block1 regCnt="400" funcCode="6" regNum="40015" regOff="-40000" regByteLen="2"/>
+			</modbusWriteBlocks>
+			<uccRecvParms type="string">
+                <RegNum desc="Register Number" type="ui4" required="true"/>
+                <DataType desc="Data Type (boolean)" type="string" required="true"/>
+                <Desc desc="Description" type="string" required="false"/>
+                <FacUdc desc="Facility.UDC for Point Processing" type="string" required="false"/>
+            </uccRecvParms>
+            <uccSendParms type="string">
+                <RegNum desc="Register Number" type="ui4" required="true"/>
+                <DataType desc="Data Type (boolean)" type="string" required="true"/>
+                <Desc desc="Description" required="false" type="string"/>
+                <FacUdc desc="Facility.UDC for Point Processing" type="string" required="false"/>
+                <Value desc="Value" type="vrnt" required="true"/>
+            </uccSendParms>
+        </ACCReg>
+        
+			
+		
+    </dataGroups>
+    <defDataGroups>
+        <ACCReg/>
+    </defDataGroups>
+</deviceDefinition>
