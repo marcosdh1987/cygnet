@@ -1,0 +1,264 @@
+<deviceDefinition deviceType="AFC_SCH" desc="Marcos's template 1" model="V110" eieType="ModbusEfm" category="4098" mfg="CygNet" cygnetVersion="9.2.1000" customerVersion="">
+    <dataGroups udcCat="~UDCALL" canSend="true" canRecv="true" uccSend="false" uccRecv="true" udcDefFac="true" devDG="false" baseOrd="0" maxCnt="1" forceSave="True">
+        <CfgMB niceName="Configurable Modbus Datagroup" baseOrd="1" maxCnt="999" ordLabel="Ord#"/>
+        <ExStatus dgCat="ExStatus" niceName="Read Exception Status" canSend="false" uccSend="false">
+            <dgElements byteOrder="bigEndian" secLev="4" type="ui1">
+                <Status desc="Exception Status" dMask="0x%02x"/>
+                <Status7 desc="Status Bit 7" type="boolean" bPos="7" len="1" ref="Status"/>
+                <Status6 desc="Status Bit 6" type="boolean" bPos="6" len="1" ref="Status"/>
+                <Status5 desc="Status Bit 5" type="boolean" bPos="5" len="1" ref="Status"/>
+                <Status4 desc="Status Bit 4" type="boolean" bPos="4" len="1" ref="Status"/>
+                <Status3 desc="Status Bit 3" type="boolean" bPos="3" len="1" ref="Status"/>
+                <Status2 desc="Status Bit 2" type="boolean" bPos="2" len="1" ref="Status"/>
+                <Status1 desc="Status Bit 1" type="boolean" bPos="1" len="1" ref="Status"/>
+                <Status0 desc="Status Bit 0" type="boolean" bPos="0" len="1" ref="Status"/>
+            </dgElements>
+        </ExStatus>
+        <AFCReg niceName="AFC Sch Host Regs" devDG="false" autoAdd="0" baseOrd="0" majorRev="1" minorRev="1" canSend="true" canRecv="true" uccSend="true" uccRecv="true">
+            <dgElements byteOrder="bigEndian" secLev="4">
+				<Ele001 desc="Converged Iteration Fault Code" regNum="30006" type="ui2"/>
+				<Ele002 desc="Iterpolation Fault Code" regNum="30007" type="ui2"/>
+				<Ele003 desc="MVT Range Fault Code" regNum="30008" type="ui2"/>
+				<Ele004 desc="Sonar Velocity Fault Code" regNum="30009" type="ui2"/>
+				<Ele005 desc="Flow Envelope Fault Code" regNum="30010" type="ui2"/>
+				<Ele006 desc="Comms Fault Code" regNum="30011" type="ui2"/>
+				<Ele007 desc="PI Status Fault Code" regNum="30012" type="ui2"/>
+				<Ele008 desc="Qt Fault Code" regNum="30013" type="ui2"/>
+				<Ele009 desc="Calculation Mode (0 - Homogeneous; 1 - Wet Gas; 2 - VSR; 3 - SRD)" regNum="30014" type="ui2"/>
+				<Ele010 desc="MVT Pressure" type="r4" units="bar" regNum="30015"/>
+				<Ele011 desc="MVT Differential Pressure" type="r4" units="bar" regNum="30017"/>
+				<Ele012 desc="MVT Temperature" type="r4" units="C" regNum="30019"/>
+				<Ele013 desc="Sonar Velocity" type="r4" units="m/s" regNum="30021"/>
+				<Ele014 desc="Sonar Quality" type="r4" regNum="30023"/>
+				<Ele015 desc="Water Cut" type="r4" regNum="30025" units="%"/>
+				<Ele016 desc="Gamma Density" type="r4" regNum="30027"/>
+				<Ele017 desc="Qg - line Conditions" type="r4" units="m3s" regNum="30029"/>
+				<Ele018 desc="Ql - line Conditions" type="r4" units="m3s" regNum="30031"/>
+				<Ele019 desc="Qo - line Conditions" type="r4" units="m3s" regNum="30033"/>
+				<Ele020 desc="Qw - line Conditions" type="r4" units="m3s" regNum="30035"/>
+				<Ele021 desc="MVT Pressure cfg_unit" type="r4" regNum="30037"/>
+				<Ele022 desc="MVT Differential Pressure cfg_unit" type="r4" regNum="30039"/>
+				<Ele023 desc="MVT Temperature cfg_unit" type="r4" regNum="30041"/>
+				<Ele024 desc="Qg - line Conditions cfg_unit" type="r4" regNum="30043"/>
+				<Ele025 desc="Ql - line Conditions cfg_unit" type="r4" regNum="30045"/>
+				<Ele026 desc="Qo - line Conditions cfg_unit" type="r4" regNum="30047"/>
+				<Ele027 desc="Qw - line Conditions cfg_unit" type="r4" regNum="30049"/>
+				<Ele028 desc="Qg - Standard Conditions" type="r4" units="m3D" regNum="30059"/>
+				<Ele029 desc="Ql - Standard Conditions" type="r4" units="m3D" regNum="30061"/>
+				<Ele030 desc="Qo - Standard Conditions" type="r4" units="m3D" regNum="30063"/>
+				<Ele031 desc="Qw - Standard Conditions" type="r4" units="m3D" regNum="30065"/>
+				<Ele032 desc="Qg - EMA" type="r4" units="m3D" regNum="30067"/>
+				<Ele033 desc="Ql - EMA" type="r4" units="m3D" regNum="30069"/>
+				<Ele034 desc="Qo - EMA" type="r4" units="m3D" regNum="30071"/>
+				<Ele035 desc="Qw - EMA" type="r4" units="m3D" regNum="30073"/>
+				<Ele036 desc="mass flow rate gas cfg_unit" type="r4" regNum="30075"/>
+				<Ele037 desc="mass flow rate liquid cfg_unit" type="r4" regNum="30061"/>
+				<Ele038 desc="mass flow rate oil cfg_unit" type="r4" regNum="30063"/>
+				<Ele039 desc="mass flow rate water cfg_unit" type="r4" regNum="30065"/>
+			</dgElements>
+			<modbusReadBlocks>
+				<block1 regCnt="70" funcCode="4" regNum="30006" regOff="-30001" regByteLen="2"/>
+			</modbusReadBlocks>
+			<modbusWriteBlocks>
+				<block1 regCnt="70" funcCode="6" regNum="30006" regOff="-30001" regByteLen="2"/>
+			</modbusWriteBlocks>
+			<uccRecvParms type="string">
+                <RegNum desc="Register Number" type="ui4" required="true"/>
+                <DataType desc="Data Type (boolean)" type="string" required="true"/>
+                <Desc desc="Description" type="string" required="false"/>
+                <FacUdc desc="Facility.UDC for Point Processing" type="string" required="false"/>
+            </uccRecvParms>
+            <uccSendParms type="string">
+                <RegNum desc="Register Number" type="ui4" required="true"/>
+                <DataType desc="Data Type (boolean)" type="string" required="true"/>
+                <Desc desc="Description" required="false" type="string"/>
+                <FacUdc desc="Facility.UDC for Point Processing" type="string" required="false"/>
+                <Value desc="Value" type="vrnt" required="true"/>
+            </uccSendParms>
+        </AFCReg>
+        <PhaseFlowX niceName="PhaseFlowX Algorithm" devDG="false" autoAdd="0" baseOrd="0" majorRev="1" minorRev="1" canSend="true" canRecv="true" uccSend="true" uccRecv="true">
+            <dgElements secLev="4" byteOrder="bigEndian">
+                <Ele001 desc="GVF" regNum="30101" type="r4" />
+				<Ele002 desc="HL" regNum="30103" type="r4" />
+				<Ele003 desc="Lockhart-Martinelli parameter" regNum="30105" type="r4" />
+				<Ele004 desc="Froude Number" regNum="30107" type="r4" />
+				<Ele005 desc="Liquid Mass Quality" regNum="30109" type="r4" />
+				<Ele006 desc="Reynolds Number" regNum="30111" type="r4" />
+				<Ele007 desc="Liquid Velocity" units="m/s" regNum="30113" type="r4" />
+				<Ele008 desc="Gas Velocity" units="m/s" regNum="30115" type="r4" />
+				<Ele009 desc="Oil Density" regNum="30127" type="r4" />
+				<Ele010 desc="Brine Density" regNum="30129" type="r4" />
+				<Ele011 desc="Total Liquid Density" regNum="30131" type="r4" />
+				<Ele012 desc="Gas Density - Venturi" regNum="30133" type="r4" />
+				<Ele013 desc="Gas Density - Sonar" regNum="30135" type="r4" />
+				<Ele014 desc="Mixture Density" regNum="30137" type="r4" />
+            </dgElements>
+            <modbusReadBlocks>
+                <block1 regCnt="40" funcCode="4" regNum="30101" regOff="-30001" regByteLen="2"/>
+            </modbusReadBlocks>
+            <modbusWriteBlocks>
+                <block1 regCnt="40" funcCode="6" regNum="30101" regOff="-30001" regByteLen="2"/>
+            </modbusWriteBlocks>
+            <uccRecvParms type="string">
+                <RegNum desc="Register Number" type="ui4" required="true"/>
+                <DataType desc="Data Type (boolean)" type="string" required="true"/>
+                <Desc desc="Description" type="string" required="false"/>
+                <FacUdc desc="Facility.UDC for Point Processing" type="string" required="false"/>
+            </uccRecvParms>
+            <uccSendParms type="string">
+                <RegNum desc="Register Number" type="ui4" required="true"/>
+                <DataType desc="Data Type (boolean)" type="string" required="true"/>
+                <Desc desc="Description" required="false" type="string"/>
+                <FacUdc desc="Facility.UDC for Point Processing" type="string" required="false"/>
+                <Value desc="Value" type="vrnt" required="true"/>
+            </uccSendParms>
+		</PhaseFlowX>
+		
+        <WTResult niceName="WellTestResults" devDG="false" autoAdd="0" baseOrd="0" majorRev="1" minorRev="1" canSend="true" canRecv="true" uccSend="true" uccRecv="true">
+            <dgElements secLev="4" byteOrder="bigEndian">
+                <Ele001 desc="Well Test Status" regNum="30501" type="ui2" />
+				<Ele002 desc="Well Test Save attempt result" regNum="30502" type="ui2" />
+				<Ele003 desc="Purge end Date/Time year" regNum="30503" type="ui2" />
+				<Ele004 desc="Purge end Date/Time month (1 through 12)" regNum="30504" type="ui2" />
+				<Ele005 desc="Purge end Date/Time day (1 through 31)" regNum="30505" type="ui2" />
+				<Ele006 desc="Purge end Date/Time hour (0 through 24)" regNum="30506" type="ui2" />
+				<Ele007 desc="Purge end Date/Time minute (0 through 59)" regNum="30507" type="ui2" />
+				<Ele008 desc="Purge duration hours (0 through 999)" regNum="30508" type="ui2" />
+				<Ele009 desc="Purge duration minutes (0 through 59)" regNum="30509" type="ui2" />
+				<Ele010 desc="Purge duration seconds (0 through 59)" regNum="30510" type="ui2" />
+				<Ele011 desc="Purge Total Volume of gas at standard conditions. (user units)" regNum="30511" type="r4" />
+				<Ele012 desc="Purge Total Volume of liquid at standard conditions. (user units)" regNum="30513" type="r4" />
+				<Ele013 desc="Purge Total Volume of oil at standard conditions. (user units)" regNum="30515" type="r4" />
+				<Ele014 desc="Purge Total Volume of water at standard conditions. (user units)" regNum="30517" type="r4" />
+				<Ele015 desc="Purge Total Water Cut (0 through 100) standard conditions." regNum="30519" type="r4" />
+				<Ele016 desc="Purge GOR standard conditions. (user units)" regNum="30521" type="r4" />
+				<Ele017 desc="Purge Total Volume of gas at line conditions. (user units)" regNum="30523" type="r4" />
+				<Ele018 desc="Purge Total Volume of liquid at line conditions. (user units)" regNum="30525" type="r4" />
+				<Ele019 desc="Purge Total Volume of oil at line conditions. (user units)" regNum="30527" type="r4" />
+				<Ele020 desc="Purge Total Volume of water at line conditions. (user units)" regNum="30529" type="r4" />
+				<Ele021 desc="Purge Mass of gas (user units)" regNum="30531" type="r4" />
+				<Ele022 desc="Purge Mass of liquid (user units)" regNum="30533" type="r4" />
+				<Ele023 desc="Purge Mass of oil (user units)" regNum="30535" type="r4" />
+				<Ele024 desc="Purge Mass of water (user units)" regNum="30537" type="r4" />
+				<Ele025 desc="Purge Spare 1" regNum="30539" type="r4" />
+				<Ele026 desc="Purge Spare 2" regNum="30541" type="r4" />
+				
+				<Ele027 desc="Test end Date/Time year" regNum="30543" type="ui2" />
+				<Ele028 desc="Test end Date/Time month (1 through 12)" regNum="30544" type="ui2" />
+				<Ele029 desc="Test end Date/Time day (1 through 31)" regNum="30545" type="ui2" />
+				<Ele030 desc="Test end Date/Time hour (0 through 24)" regNum="30546" type="ui2" />
+				<Ele031 desc="Test end Date/Time minute (0 through 59)" regNum="30547" type="ui2" />
+				<Ele032 desc="Test duration hours (0 through 999)" regNum="30548" type="ui2" />
+				<Ele033 desc="Test duration minutes (0 through 59)" regNum="30549" type="ui2" />
+				<Ele034 desc="Test duration seconds (0 through 59)" regNum="30550" type="ui2" />
+				<Ele035 desc="Test Total Volume of gas at standard conditions. (user units)" regNum="30551" type="r4" />
+				<Ele036 desc="Test Total Volume of liquid at standard conditions. (user units)" regNum="30553" type="r4" />
+				<Ele037 desc="Test Total Volume of oil at standard conditions. (user units)" regNum="30555" type="r4" />
+				<Ele038 desc="Test Total Volume of water at standard conditions. (user units)" regNum="30557" type="r4" />
+				<Ele039 desc="Test Total Water Cut (0 through 100) standard conditions." regNum="30559" type="r4" />
+				<Ele040 desc="Test GOR standard conditions. (user units)" regNum="30561" type="r4" />
+				<Ele041 desc="Test Total Volume of gas at line conditions. (user units)" regNum="30563" type="r4" />
+				<Ele042 desc="Test Total Volume of liquid at line conditions. (user units)" regNum="30565" type="r4" />
+				<Ele043 desc="Test Total Volume of oil at line conditions. (user units)" regNum="30567" type="r4" />
+				<Ele044 desc="Test Total Volume of water at line conditions. (user units)" regNum="30569" type="r4" />
+				<Ele045 desc="Test Mass of gas (user units)" regNum="30571" type="r4" />
+				<Ele046 desc="Test Mass of liquid (user units)" regNum="30573" type="r4" />
+				<Ele047 desc="Test Mass of oil (user units)" regNum="30575" type="r4" />
+				<Ele048 desc="Test Mass of water (user units)" regNum="30577" type="r4" />
+				<Ele049 desc="Test Spare 1" regNum="30579" type="r4" />
+				<Ele050 desc="Test Spare 2" regNum="30581" type="r4" />
+				
+				<Ele051 desc="Previous Test end Date/Time year" regNum="30583" type="ui2" />
+				<Ele052 desc="Previous Test end Date/Time month (1 through 12)" regNum="30584" type="ui2" />
+				<Ele053 desc="Previous Test end Date/Time day (1 through 31)" regNum="30585" type="ui2" />
+				<Ele054 desc="Previous Test end Date/Time hour (0 through 24)" regNum="30586" type="ui2" />
+				<Ele055 desc="Previous Test end Date/Time minute (0 through 59)" regNum="30587" type="ui2" />
+				<Ele056 desc="PreviousTest duration hours (0 through 999)" regNum="30588" type="ui2" />
+				<Ele057 desc="Previous Test duration minutes (0 through 59)" regNum="30589" type="ui2" />
+				<Ele058 desc="Previous Test duration seconds (0 through 59)" regNum="30590" type="ui2" />
+				<Ele059 desc="Previous Test Total Volume of gas at standard conditions. (user units)" regNum="30591" type="r4" />
+				<Ele060 desc="Previous Test Total Volume of liquid at standard conditions. (user units)" regNum="30593" type="r4" />
+				<Ele061 desc="Previous Test Total Volume of oil at standard conditions. (user units)" regNum="30595" type="r4" />
+				<Ele062 desc="Previous Test Total Volume of water at standard conditions. (user units)" regNum="30597" type="r4" />
+				<Ele063 desc="Previous Test Total Water Cut (0 through 100) standard conditions." regNum="30599" type="r4" />
+				<Ele064 desc="Previous Test GOR standard conditions. (user units)" regNum="30561" type="r4" />
+				<Ele065 desc="Previous Test Total Volume of gas at line conditions. (user units)" regNum="30603" type="r4" />
+				<Ele066 desc="Previous Test Total Volume of liquid at line conditions. (user units)" regNum="30605" type="r4" />
+				<Ele067 desc="Previous Test Total Volume of oil at line conditions. (user units)" regNum="30607" type="r4" />
+				<Ele068 desc="Previous Test Total Volume of water at line conditions. (user units)" regNum="30609" type="r4" />
+				<Ele069 desc="Previous Test Mass of gas (user units)" regNum="30611" type="r4" />
+				<Ele070 desc="Previous Test Mass of liquid (user units)" regNum="30613" type="r4" />
+				<Ele071 desc="Previous Test Mass of oil (user units)" regNum="30615" type="r4" />
+				<Ele072 desc="Previous Test Mass of water (user units)" regNum="30617" type="r4" />
+				<Ele073 desc="Previous Test Spare 1" regNum="30619" type="r4" />
+				<Ele074 desc="Previous Test Spare 2" regNum="30621" type="r4" />
+				
+            </dgElements>
+            <modbusReadBlocks>
+                <block1 regCnt="140" funcCode="4" regNum="30501" regOff="-30001" regByteLen="2"/>
+            </modbusReadBlocks>
+            <modbusWriteBlocks>
+                <block1 regCnt="140" funcCode="6" regNum="30501" regOff="-30001" regByteLen="2"/>
+            </modbusWriteBlocks>
+            <uccRecvParms type="string">
+                <RegNum desc="Register Number" type="ui4" required="true"/>
+                <DataType desc="Data Type (boolean)" type="string" required="true"/>
+                <Desc desc="Description" type="string" required="false"/>
+                <FacUdc desc="Facility.UDC for Point Processing" type="string" required="false"/>
+            </uccRecvParms>
+            <uccSendParms type="string">
+                <RegNum desc="Register Number" type="ui4" required="true"/>
+                <DataType desc="Data Type (boolean)" type="string" required="true"/>
+                <Desc desc="Description" required="false" type="string"/>
+                <FacUdc desc="Facility.UDC for Point Processing" type="string" required="false"/>
+                <Value desc="Value" type="vrnt" required="true"/>
+            </uccSendParms>
+		</WTResult>	
+			
+		<DailyCumms niceName="Daily Accumulator" devDG="false" autoAdd="0" baseOrd="0" majorRev="1" minorRev="1" canSend="true" canRecv="true" uccSend="true" uccRecv="true">
+            <dgElements secLev="4" byteOrder="bigEndian">
+                <Ele001 desc="Daily Total Volume of gas at standard conditions" regNum="30701" type="r4" />
+				<Ele002 desc="Daily Total Volume of liquid at standard conditions" regNum="30703" type="r4" />
+				<Ele003 desc="Daily Total Volume of oil at standard conditions" regNum="30705" type="r4" />
+				<Ele004 desc="Daily Total Volume of water at standard conditions" regNum="30707" type="r4" />
+				<Ele005 desc="Daily Total Water Cut (0 through 100) at standard conditions" regNum="30709" type="r4" />
+				<Ele006 desc="Daily GOR at standard conditions" regNum="30711" type="r4" />
+				<Ele007 desc="Daily Total Volume of gas at line conditions" regNum="30713" type="r4" />
+				<Ele008 desc="Daily Total Volume of liquid at line conditions" regNum="30715" type="r4" />
+				<Ele009 desc="Daily Total Volume of oil at line conditions" regNum="30717" type="r4" />
+				<Ele010 desc="Daily Total Volume of water at line conditions" regNum="30719" type="r4" />
+				<Ele011 desc="Daily Mass of gas" regNum="30721" type="r4" />
+				<Ele012 desc="Daily Mass of liquid" regNum="30723" type="r4" />
+				<Ele013 desc="Daily Mass of oil" regNum="30725" type="r4" />
+				<Ele014 desc="Daily Mass of water" regNum="30727" type="r4" />
+				<Ele015 desc="Daily Total Water Cut (0 through 100) at line conditions" regNum="30729" type="r4" />
+				<Ele016 desc="Daily GOR at line conditions" regNum="30731" type="r4" />
+				
+            </dgElements>
+            <modbusReadBlocks>
+                <block1 regCnt="60" funcCode="4" regNum="30701" regOff="-30001" regByteLen="2"/>
+            </modbusReadBlocks>
+            <modbusWriteBlocks>
+                <block1 regCnt="60" funcCode="6" regNum="30701" regOff="-30001" regByteLen="2"/>
+            </modbusWriteBlocks>
+            <uccRecvParms type="string">
+                <RegNum desc="Register Number" type="ui4" required="true"/>
+                <DataType desc="Data Type (boolean)" type="string" required="true"/>
+                <Desc desc="Description" type="string" required="false"/>
+                <FacUdc desc="Facility.UDC for Point Processing" type="string" required="false"/>
+            </uccRecvParms>
+            <uccSendParms type="string">
+                <RegNum desc="Register Number" type="ui4" required="true"/>
+                <DataType desc="Data Type (boolean)" type="string" required="true"/>
+                <Desc desc="Description" required="false" type="string"/>
+                <FacUdc desc="Facility.UDC for Point Processing" type="string" required="false"/>
+                <Value desc="Value" type="vrnt" required="true"/>
+            </uccSendParms>
+        </DailyCumms>
+		
+    </dataGroups>
+    <defDataGroups>
+        <AFCReg/>
+        <PhaseFlowX/>
+    </defDataGroups>
+</deviceDefinition>
